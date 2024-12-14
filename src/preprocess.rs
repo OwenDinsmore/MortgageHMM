@@ -1,4 +1,3 @@
-
 use ndarray::{Array1, Array2, Axis};
 use std::error::Error;
 use std::fs::File;
