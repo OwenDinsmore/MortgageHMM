@@ -1,6 +1,6 @@
 
 
-The main.rs file is where everything comes together. Think of it as the control center where we load our mortgage data, train our model, and test how well it works. It starts by reading in two sets of data - one for training and one for testing. Then it tries out different settings (like how fast the model learns or how strict it should be with predictions) to find what works best. Once it finds the best settings, 
+The main.rs file is where everything comes together.  we load our mortgage data, train our model, and evaluate it. It starts by reading in two sets of data - one for training and one for testing. Then it tries out different settings (like how fast the model learns or how strict it should be with predictions) to find what works best. Once it finds the best settings, 
 it shows us how accurate the predictions are and gives us some example predictions with real numbers. This makes it easy to see how the model would work in real life, like checking if someone asking for a $95,000 loan with a good job history might default.
 
 The final output has a 70-80% accuracy on the testing data. We could increase that accuracy with more features, but for the purpose of this finding that data with a larger shape proved to be difficult. It's important to note that I created a 75/25 train/test split on the data using python/ pandas
