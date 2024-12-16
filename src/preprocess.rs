@@ -47,9 +47,9 @@ pub fn preprocess_csv(file_path: &str) -> Result<(Array2<f64>, Array1<f64>), Box
     Ok((data_array_cleaned, Array1::from(labels)))
 }
 
-///replaces NaN or zero values in a 2D array with the mean of each column
+///replaces nan vals in a 2D array with the mean of each column
 fn replace_nan_with_mean(mut array: Array2<f64>) -> Array2<f64> {
-    // Calculate column means, ignoring NaNs and zeros
+    // calc column means, ignoring NaNs and zeros
     let mean_values: Array1<f64> = array
         .axis_iter(Axis(1))
         .map(|col| {
@@ -66,7 +66,7 @@ fn replace_nan_with_mean(mut array: Array2<f64>) -> Array2<f64> {
         })
         .collect();
 
-    // replace NaN or zero values with column means
+    // replace nan with mean
     array.mapv_inplace(|val| {
         if val <= 0.0 || val.is_nan() {
             // find the corresponding column mean
@@ -80,7 +80,7 @@ fn replace_nan_with_mean(mut array: Array2<f64>) -> Array2<f64> {
     array
 }
 
-// optional: Print data statistics to help diagnose issues
+// print data statistics to help diagnose issues
 pub fn print_data_statistics(features: &Array2<f64>, _labels: &Array1<f64>) {
     println!("Data Shape: {} rows, {} columns", features.nrows(), features.ncols());
     println!("Label Distribution:");
